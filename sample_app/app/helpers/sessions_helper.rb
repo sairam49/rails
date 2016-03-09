@@ -1,5 +1,5 @@
 module SessionsHelper
-  def log_in(user)
+  def log_in user
     session[:user_id] = user.id
   end
 
@@ -16,11 +16,11 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def current_user?(user)
+  def current_user? user
     user == current_user
   end
 
-  def redirect_back_or(default)
+  def redirect_back_or default
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)
   end
